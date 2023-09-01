@@ -7,7 +7,7 @@
 
 - Versions :
 
-  - F6X ARCADE SNAKE : 0.1.0
+  - F6X ARCADE SNAKE : 0.2.0
   - Unity : 2022.3.8f1
 
 - Credits :
