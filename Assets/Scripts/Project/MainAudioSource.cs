@@ -30,25 +30,19 @@ public class MainAudioSource : MonoBehaviour
         {
             audioSource.volume += stepVolumeSize;
             ConsoleLog($"Volume Increased By {stepVolumeSize:F2}.");
-            ClampVolume();
-            ShowVolume();
+            ManageVolume();
         }
         else if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             audioSource.volume -= stepVolumeSize;
             ConsoleLog($"Volume Decreased By {stepVolumeSize:F2}.");
-            ClampVolume();
-            ShowVolume();
+            ManageVolume();
         }
     }
 
-    private void ClampVolume()
+    private void ManageVolume()
     {
         audioSource.volume = Mathf.Clamp01(audioSource.volume);
-    }
-
-    private void ShowVolume()
-    {
         volumeRounded = Mathf.Round(audioSource.volume * 100f) / 100f;
         ConsoleLog($"Current Volume = {volumeRounded:F2} .");
     }
