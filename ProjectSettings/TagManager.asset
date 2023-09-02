@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameManager
+  - Apple
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Item
   - 
   - 
   - 
@@ -41,6 +43,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 3762229543
+    locked: 0
+  - name: Wall
+    uniqueID: 22523333
+    locked: 0
+  - name: Apple
+    uniqueID: 4147353825
     locked: 0
   - name: Player
     uniqueID: 251518281

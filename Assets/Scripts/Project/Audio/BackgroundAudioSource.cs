@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-public class MainAudioSource : MonoBehaviour
+public class BackgroundAudioSource : MonoBehaviour
 {
     public Color classColor;
+    public bool consoleLog;
     public float stepVolumeSize;
     private float volumeRounded;
     private GameManager gameManager;
-    private AudioSource audioSource;
+    private AudioSource backgroundAudioSource;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class MainAudioSource : MonoBehaviour
     private void InitializeReferences()
     {
         gameManager = FindObjectOfType<GameManager>();
-        audioSource = GetComponent<AudioSource>();
+        backgroundAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -28,13 +29,13 @@ public class MainAudioSource : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus))
         {
-            audioSource.volume += stepVolumeSize;
+            backgroundAudioSource.volume += stepVolumeSize;
             ConsoleLog($"Volume Increased By {stepVolumeSize:F2}.");
             ManageVolume();
         }
         else if (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus))
         {
-            audioSource.volume -= stepVolumeSize;
+            backgroundAudioSource.volume -= stepVolumeSize;
             ConsoleLog($"Volume Decreased By {stepVolumeSize:F2}.");
             ManageVolume();
         }
@@ -42,13 +43,14 @@ public class MainAudioSource : MonoBehaviour
 
     private void ManageVolume()
     {
-        audioSource.volume = Mathf.Clamp01(audioSource.volume);
-        volumeRounded = Mathf.Round(audioSource.volume * 100f) / 100f;
-        ConsoleLog($"Current Volume = {volumeRounded:F2} .");
+        backgroundAudioSource.volume = Mathf.Clamp01(backgroundAudioSource.volume);
+        volumeRounded = Mathf.Round(backgroundAudioSource.volume * 100f) / 100f;
+        ConsoleLog($"Current Volume = {volumeRounded:F2}.");
     }
 
     private void ConsoleLog(string message)
     {
-        gameManager.MainConsoleLog($"{message}", classColor);
+        if (consoleLog)
+            gameManager.MainConsoleLog($"{message}", classColor);
     }
 }

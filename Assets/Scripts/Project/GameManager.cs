@@ -4,16 +4,42 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Color classColor;
+    public bool consoleLog;
     public bool consoleLogSystem;
+    private bool gameOver;
+    private PlayerController playerController;
 
-    private void Start()
+    public bool GetGameOver()
+    {
+        return gameOver;
+    }
+
+    private void Awake()
     {
         ConsoleLog("Starting Game...");
+        InitializeVariables();
+    }
+
+    private void InitializeVariables()
+    {
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
     {
         ExitGame();
+    }
+
+    private void Start()
+    {
+        gameOver = false;
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        ConsoleLog("Game Over.");
+        ConsoleLog($"Final Score = {playerController.GetScore()}.");
     }
 
     private void ExitGame()
@@ -27,7 +53,8 @@ public class GameManager : MonoBehaviour
 
     private void ConsoleLog(string message)
     {
-        MainConsoleLog($"{message}", classColor);
+        if (consoleLog)
+            MainConsoleLog($"{message}", classColor);
     }
 
     public void MainConsoleLog(string message, Color classColor, int frame = 1)
