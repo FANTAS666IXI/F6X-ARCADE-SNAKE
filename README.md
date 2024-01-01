@@ -21,7 +21,7 @@
 
 - Credits :
 
-  - Author  : FANTAS666X
+  - Author  : FANTAS666X - https://github.com/FANTAS666IXI
   - Sprites : ArMM1998 - https://opengameart.org/content/zelda-like-tilesets-and-sprites
   - OST     : KIRARA MAGIC - https://www.youtube.com/watch?v=Az27S3KdXHE&ab_channel=KiraraMagic
   - SFX     : ajanhallinta - https://freesound.org/people/ajanhallinta/sounds/650943
